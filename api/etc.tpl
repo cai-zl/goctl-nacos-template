@@ -12,6 +12,9 @@ NacosConfig:
     CacheDir:
     LogLevel: debug
 
-# Name: {{.serviceName}}
-# Host: {{.host}}
-# Port: {{.port}}
+#Name: {{.serviceName}}
+#Host: {{.host}}
+#Port: {{.port}}
+#TenantRpc:
+#  Target: nacos://127.0.01:8848/{{.serviceName}}.rpc?timeout=5000s
+

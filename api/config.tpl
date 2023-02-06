@@ -1,13 +1,14 @@
 package config
 
 import (
+    "fmt"
+
     {{.authImport}}
 
     "github.com/nacos-group/nacos-sdk-go/v2/clients"
     "github.com/nacos-group/nacos-sdk-go/v2/common/constant"
     "github.com/nacos-group/nacos-sdk-go/v2/vo"
     "github.com/zeromicro/go-zero/core/logx"
-    "github.com/zeromicro/go-zero/zrpc"
     "github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
 )
 
@@ -49,7 +50,7 @@ type (
 
 func (n *NacosConfig) Discovery(c Config) {
 	sc, cc := n.buildConfig()
-	opts := nacos.NewNacosConfig(c.Name, c.ListenOn, sc, &cc)
+	opts := nacos.NewNacosConfig(c.Name, fmt.Sprintf("%s:%d", c.Host, c.Port), sc, &cc)
 	err := nacos.RegisterService(opts)
 	if err != nil {
 		panic(err)

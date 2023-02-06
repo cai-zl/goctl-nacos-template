@@ -12,5 +12,5 @@ NacosConfig:
     CacheDir:
     LogLevel: debug
 
-# Name: {{.serviceName}}.rpc
-# ListenOn: 0.0.0.0:8080
+#Name: {{.serviceName}}.rpc
+#ListenOn: 0.0.0.0:8080
